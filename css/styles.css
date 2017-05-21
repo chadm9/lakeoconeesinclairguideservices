@@ -1,0 +1,50 @@
+.top-bar{
+    background: linear-gradient(lightblue, aliceblue);
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    box-shadow: 10px 10px 5px lightgray;
+}
+
+#bass-pic{
+    max-width: 7%;
+    max-height: 7%;
+    padding-top: 5px;
+    float: left;
+    display: inline-block;
+    padding-bottom: 3px;
+}
+
+#header{
+    color: #250505;
+    font-family: 'Bree Serif', serif;
+    display: inline;
+    /*font-family: 'Dancing Script', cursive;*/
+}
+
+.links{
+    font-family: 'Bree Serif', serif;
+    color: #250505;
+
+}
+
+.links:hover{
+    text-decoration: none;
+    color: gray;
+}
+
+.nav-bar{
+    border-top: 1px solid white;
+
+}
+
+body{
+    background-color: #fafafa;
+}
+
+.middle{
+    background-color: ghostwhite;
+    height: 100vh;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    box-shadow: 10px 10px 5px lightgray;
+}
