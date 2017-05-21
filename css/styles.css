@@ -84,11 +84,25 @@ body{
 }
 
 #plug{
-    /*
-    font-family: 'Dancing Script', cursive;
-    */
     font-style: italic;
+    font-family: Arial, Calibri;
     font-weight: 600;
-    color: #332219;
+    color: black;
+    text-shadow: 1px 1px 3px rgba(255, 201, 189, 0.64);
     padding: 10px;
+}
+
+.page-description{
+    font-family: Arial, Calibri, serif;
+    font-weight: 600;
+    color: black;
+    text-shadow: 1px 1px 3px rgba(255, 201, 189, 0.64);
+}
+.table-headings{
+    text-align: center;
+}
+
+#gallery-container{
+    margin-top: 10px;
+;
 }
