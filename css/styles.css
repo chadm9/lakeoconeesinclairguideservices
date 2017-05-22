@@ -47,13 +47,15 @@
     text-shadow: 1px 1px 4px #956448;*/
 
     color: ghostwhite;
-    text-shadow: 1px 1px 4px #ffc9bd;
+    text-shadow: 1px 1px 3px #ffc9bd;
 
 }
 
 .links:hover{
     text-decoration: none;
-    color: gray;
+    color: lightblue;
+    text-shadow: none;
+
 }
 
 .nav-bar{
@@ -104,5 +106,4 @@ body{
 
 #gallery-container{
     margin-top: 10px;
-;
 }
