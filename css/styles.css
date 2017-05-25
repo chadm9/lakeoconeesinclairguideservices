@@ -107,3 +107,32 @@ body{
 #gallery-container{
     margin-top: 10px;
 }
+
+
+.forecast{
+    border: 1px solid gray;
+    background: linear-gradient(white, #bde9f8);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+
+}
+
+.today, .day-1, .day-2, .day-3{
+    border-right: none;
+}
+
+.weather{
+    margin-top: 15px;
+    font-family: Arial, Calibri, serif;
+
+}
+
+.five-day-forecast{
+    padding-bottom: 10px;
+}
+
+
+#check-pic, #boat2-pic{
+    height: 300px;
+    width: 100%;
+}
