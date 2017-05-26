@@ -136,3 +136,11 @@ body{
     height: 300px;
     width: 100%;
 }
+.payment-menu{
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#paypal-button{
+    margin-bottom: 10px;
+}
