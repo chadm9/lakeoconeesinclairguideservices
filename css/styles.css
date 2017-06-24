@@ -87,7 +87,7 @@ body{
 
 #plug{
     font-style: italic;
-    font-family: Arial, Calibri;
+    font-family: Arial, Calibri, serif;
     font-weight: 600;
     color: black;
     text-shadow: 1px 1px 3px rgba(255, 201, 189, 0.64);
@@ -143,4 +143,8 @@ body{
 
 #paypal-button{
     margin-bottom: 10px;
+}
+
+#contact-form{
+    padding-bottom: 10px;
 }
