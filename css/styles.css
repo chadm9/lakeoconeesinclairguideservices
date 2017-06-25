@@ -148,3 +148,7 @@ body{
 #contact-form{
     padding-bottom: 10px;
 }
+
+#form-error{
+    color: red;
+}
