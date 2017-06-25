@@ -53,6 +53,7 @@ $(document).ready(function () {
         for(var i = 0; i < data.list.length; i++){
             var forecastTime = new Date(data.list[i].dt*1000);
             //console.log(data.list[i].rain['3h']);
+            console.log(data.list[i]);
             //console.log(forcastTime.getDate());
             //console.log(callTime.getDate() + 1);
             if((forecastTime.getDate() === callTime.getDate() + daysOut)  && (forecastTime.getHours() <= 16) &&
@@ -66,7 +67,7 @@ $(document).ready(function () {
                 if(data.list[i].main.temp < minTemp){
                     minTemp = data.list[i].main.temp
                 }
-                if(data.list[i].rain['3h'] != undefined){
+                if(data.list[i].rain !== undefined){
                     totalRain += data.list[i].rain['3h'];
                 }
                 totalClouds += data.list[i].clouds.all;
