@@ -11,7 +11,7 @@ $(document).ready(function () {
             // console.log(currentInputTagClass);
             // var errorDivClassName = '.' + currentInputTagClass + '-error';
             // console.log(errorDivClassName);
-            if($(this).val() ==''){
+            if($(this).val() ===''){
                 $('#form-error').html('*All input fields are required.')
             }
         });
