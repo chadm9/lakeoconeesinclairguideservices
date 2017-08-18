@@ -13,6 +13,13 @@ $(document).ready(function () {
             // console.log(errorDivClassName);
             if($(this).val() ===''){
                 $('#form-error').html('*All input fields are required.')
+            }else{
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var phone = $('#phone').val();
+                var message = $('#message').val();
+
+                console.log(name, email, phone, message)
             }
         });
 
