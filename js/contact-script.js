@@ -7,6 +7,7 @@ $(document).ready(function () {
         event.preventDefault();
         var fieldsDefined = true;
         $('#form-error').html('');
+        $('#form-submission').html('');
         $('input').each(function(){
 
             if($(this).val() ===''){
@@ -25,14 +26,14 @@ $(document).ready(function () {
 
             $.ajax({
                 method: "POST",
-                url: "http://www.wchadmckee.com:4001/dadcontact?code=qrqrqr7789",
+                url: "http://www.wchadmckee.com:4001/dadcontact",
                 data: {
                     name: name,
                     email: email,
                     phone: phone,
                     message: message
                 }
-            })
+            });
 
             $('#form-submission').html('Your message has been sent.')
         }
