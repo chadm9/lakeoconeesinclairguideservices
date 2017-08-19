@@ -5,24 +5,37 @@
 $(document).ready(function () {
     $('#contact-form').submit(function(event){
         event.preventDefault();
-        console.log('form submitted');
+        var fieldsDefined = true;
+        $('#form-error').html('');
         $('input').each(function(){
-            // var currentInputTagClass = $(this).attr('class');
-            // console.log(currentInputTagClass);
-            // var errorDivClassName = '.' + currentInputTagClass + '-error';
-            // console.log(errorDivClassName);
-            if($(this).val() ===''){
-                $('#form-error').html('*All input fields are required.')
-            }else{
-                var name = $('#name').val();
-                var email = $('#email').val();
-                var phone = $('#phone').val();
-                var message = $('#message').val();
 
-                console.log(name, email, phone, message)
+            if($(this).val() ===''){
+                $('#form-error').html('*All input fields are required.');
+                fieldsDefined = false;
             }
         });
 
+        if(fieldsDefined){
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var phone = $('#phone').val();
+            var message = $('#message').val();
+
+            console.log(name, email, phone, message);
+
+            $.ajax({
+                method: "POST",
+                url: "http://www.wchadmckee.com:4001/dadcontact?code=qrqrqr7789",
+                data: {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    message: message
+                }
+            })
+
+            $('#form-submission').html('Your message has been sent.')
+        }
 
     });
 });
