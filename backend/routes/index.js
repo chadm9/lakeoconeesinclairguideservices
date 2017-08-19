@@ -9,17 +9,20 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/sendmail', function(req, res, next) {
-  var email = req.body.email
-  var name = req.body.name
-  var message = req.body.meassage
+router.post('/sendmail', function(req, res) {
+  var email = req.body.email;
+  var name = req.body.name;
+  var clientMessage = req.body.message;
+  var phone = req.body.phone;
+
+  relayMessage(name, email, phone, clientMessage);
+  //res.redirect('http://lakeoconeesinclairguideservices.com/')
   
-  res.redrect('http://lakeoconeesinclairguideservices.com', { title: 'Express' });
-});)
+});
 
 
 
-function sendAlert(alert, recipient){
+function relayMessage(name, email, phone, clientMessage){
 
     'use strict';
 
@@ -43,16 +46,22 @@ function sendAlert(alert, recipient){
         from: `${config.emailAddress}`
     });
 
-    console.log('SMTP Configured');
+    //console.log('SMTP Configured');
     let message = {
         // Comma separated list of recipients
-        to: `${recipient}`,
+        to: `rogermckee9@yahoo.com`,
         // Subject of the message
-        subject: 'Nintendo Switch Stock Alert', //
+        subject: 'Website Contact Form Message Received', //
         // plaintext body in case an old email client
-        text: `${alert}`,
+        text: `Name: ${name}
+        Email: ${email}
+        Phone: ${phone}
+        Message ${clientMessage}`,
         // HTML body
-        html: `<p>${alert}</p>`,
+        html: `<p>Name: ${name} <br>
+                Email: ${email} <br>
+                Phone: ${phone} <br>
+                Message: ${clientMessage}</p>`,
         // Apple Watch specific HTML body
         watchHtml: '',
 

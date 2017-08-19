@@ -26,7 +26,7 @@ $(document).ready(function () {
 
             $.ajax({
                 method: "POST",
-                url: "http://www.wchadmckee.com:4001/dadcontact",
+                url: "http://www.wchadmckee.com:3000/sendmail",
                 data: {
                     name: name,
                     email: email,
@@ -34,7 +34,10 @@ $(document).ready(function () {
                     message: message
                 }
             });
-
+            $('#name').val('');
+            $('#email').val('');
+            $('#phone').val('');
+            $('#message').val('');
             $('#form-submission').html('Your message has been sent.')
         }
 
