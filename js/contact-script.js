@@ -1,6 +1,4 @@
-/**
- * Created by mephisto on 6/24/17.
- */
+
 
 $(document).ready(function () {
     $('#contact-form').submit(function(event){
