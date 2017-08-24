@@ -32,7 +32,7 @@ This is the codebase for the official Lake Oconee Sinclair Professional Fishing 
 
 ## Code Snippet
 
-### Submitting the Contact Form information to a Remote Server
+### Submitting the Contact Form Information to a Remote Server
 The following code snippet demonstrates the front end handling of the contact form submission event.  
 <br>
 ```JavaScript
