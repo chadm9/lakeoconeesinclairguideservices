@@ -1,15 +1,11 @@
-# Connect-4
+# Lake Oconee Sinclair Professional Fishing Guide Services Website
 ---
 
 ## Description
-This code is a single page desktop and mobile friendly app for playing Connect-4,
-a popular two player game where each player tries to connect four tokens
-in a row (horizontally, vertically, or diagonally).  As Connect-4 is a game of so-called "perfect information," the game engine is implemented via application
-of the Minimax Algorithm.  A brief description of the app can be found on my personal
-website in the link below.
+This is the codebase for the official Lake Oconee Sinclair Professional Fishing Guide Services website.  
 <br>
 <br>
-<img src='images/connect-4-pic.png'>
+<img src='images/siteScreenShot.png'>
 
 
 ## Author: Chad McKee
@@ -28,73 +24,64 @@ website in the link below.
 * Bootstrap
 * Google Fonts
 
-## App Landing Page
-* <a href="http://wchadmckee.com/Connect-4/">Play Connect-4 here!</a>
+## Website
+* <a href="http://lakeoconeesinclairguideservices.com/">Lake Oconee Sinclair Professional Fishing Guide Services</a>
 
 
 
 
-## Code Snippets
+## Code Snippet
 
-### The Minimax Algorithm with alpha-beta pruning
-The following code snippet demonstrates the game's implementation of the Minimax algorithm with alpha-beta pruning.  
+### Submitting the Contact Form information to a Remote Server
+The following code snippet demonstrates the front end handling of the contact form submission event.  
 <br>
 ```JavaScript
-    function minimax(board, availableMoves, depth, alpha, beta, maximizer) {
+$(document).ready(function () {
+    //Define a function to handle form submission
+    $('#contact-form').submit(function(event){
+        //Prevent the default JavaScript behavior 
+        event.preventDefault();
+        var fieldsDefined = true;
+        $('#form-error').html('');
+        $('#form-submission').html('');
         
-        var bestValue;
-        //Check if the player or cpu has won the game and assign
-        //a point value to the game state accordingly.
-        var currentValue = evaluateState(board);
-        if (currentValue === 1000 || currentValue === -1000) {
-            return currentValue;
-        }
-
-        //If no moves remain, and no one has won, the game a tie.
-        if (availableMoves.length === 0) {
-            return 0;
-        }
-        //If the maximum recursion depth has been reached, call a heuristic
-        //function to assign a score to the game state based on who is ahead.
-        if(depth === 0){
-            return heuristic(board);
-        }
-
-        //Find the best move available from the perspective of the cpu.  This
-        //corresponds to locating the game state with the highest score.
-        if (maximizer) {
-            bestValue = -10000;
-            for (var i = 0; i < availableMoves.length; i++) {
-                var boardCopy = copyBoard(board);
-                var availableMovesCopy = copyAvailableMoves(availableMoves);
-                updateBoard(boardCopy, availableMovesCopy[i], availableMovesCopy, false);
-                bestValue = Math.max(minimax(boardCopy, availableMovesCopy, depth - 1, alpha, beta, !maximizer), bestValue);
-                alpha = Math.max(bestValue, alpha);
-                if(beta <= alpha){
-                    break;
-                }
-
+        //Loop over the form input fields.
+        $('input').each(function(){
+        //If any field is not filled out, dispaly an error message
+            if($(this).val() ===''){
+                $('#form-error').html('*All input fields are required.');
+                fieldsDefined = false;
             }
-            return bestValue;
-        }
-        
-        //Find the best move available from the perspective of the player.  This
-        //corresponds to locating the game state with the lowest score.
-        else{
-            bestValue = 10000;
-            for (var i = 0; i < availableMoves.length; i++) {
-                var boardCopy = copyBoard(board);
-                var availableMovesCopy = copyAvailableMoves(availableMoves);
-                updateBoard(boardCopy, availableMovesCopy[i], availableMovesCopy, true);
-                bestValue = Math.min(minimax(boardCopy, availableMovesCopy, depth - 1, alpha, beta, !maximizer), bestValue);
-                beta = Math.min(bestValue, beta);
-                if(beta <= alpha){
-                    break;
+        });
+        //If all fields are filled in, assign their values to variables to be
+        //passed via an AJAX request
+        if(fieldsDefined){
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var phone = $('#phone').val();
+            var message = $('#message').val();
+
+            //Perform the AJAX request
+            $.ajax({
+                method: "POST",
+                url: "http://location_hidden",
+                data: {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    message: message
                 }
-            }
-            return bestValue;
+            });
+            //Reset the input fields to blank values and alert the user
+            //that the form has been sent
+            $('#name').val('');
+            $('#email').val('');
+            $('#phone').val('');
+            $('#message').val('');
+            $('#form-submission').html('Your message has been sent.')
         }
 
-    }
+    });
+});
   ```
 
