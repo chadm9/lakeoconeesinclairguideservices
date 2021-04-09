@@ -2,11 +2,11 @@
 
 $(document).ready(function () {
 
-    const weatherAPI = 'http://api.openweathermap.org/data/2.5/weather';
+    const weatherAPI = 'https://api.openweathermap.org/data/2.5/weather';
 
 
 
-    var call =  'http://api.openweathermap.org/data/2.5/forecast?lat=33.449339&lon=-83.26209' + '&units=imperial&appid=' + apiKey;
+    var call =  'https://api.openweathermap.org/data/2.5/forecast?lat=33.449339&lon=-83.26209' + '&units=imperial&appid=' + apiKey;
 
 
     $.getJSON(call, function (data) {
@@ -16,7 +16,7 @@ $(document).ready(function () {
         var currentDescription = data.list[0].weather[0].description;
         //console.log(currentDescription);
         $('#today-description').html(currentDescription.replace(/(^|\s)[a-z]/g,function(f){return f.toUpperCase();}));
-        var currentIcon = '<img src="http://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png">';
+        var currentIcon = '<img src="https://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png">';
         $('#today-icon').html(currentIcon);
         var currentTemp = Math.round(data.list[0].main.temp);
         $('#today-temp').html(currentTemp + '\xB0');
@@ -45,7 +45,7 @@ $(document).ready(function () {
         var totalRain = 0;
         var totalClouds = 0;
         var description;
-        var weatherIcon ='<img src="http://openweathermap.org/img/w/';
+        var weatherIcon ='<img src="https://openweathermap.org/img/w/';
         var descriptionIcon = {sunny: '01d.png', mostlySunny: '01d.png', partlyCloudy: '02d.png', cloudy: '04d.png',
             lightRain: '10d.png', rain: '10d.png', heavyRain: '09d.png'};
         var dayOfWeek;
